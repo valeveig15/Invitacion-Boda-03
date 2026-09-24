@@ -1,0 +1,28 @@
+{
+  "invitation_number": 5,
+  "design": "Sofía & Mateo · Beige clásica · corregida V2",
+  "couple": "Sofía & Mateo",
+  "date": "2026-12-13T18:00:00-03:00",
+  "local_assets": [
+    "track-05.mp3",
+    "icon_heart_beige.png",
+    "icon_gift_beige_circle.png",
+    "paper_texture.jpg",
+    "wood_tile.jpg",
+    "noise.svg",
+    "icon-calendar.svg",
+    "leaf-corner.svg"
+  ],
+  "external_services": [
+    "Google Fonts",
+    "Unsplash",
+    "Google Maps",
+    "Google Calendar"
+  ],
+  "notes": [
+    "RSVP, regalos e Instagram permanecen como demo hasta conectar los destinos reales.",
+    "La música local original se conserva como loop controlado por el usuario.",
+    "La sección de sugerencias musicales fue retirada.",
+    "Ceremonia, fiesta, RSVP e Instagram usan logos SVG propios inline con animaciones independientes."
+  ]
+}

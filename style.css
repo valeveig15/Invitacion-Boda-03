@@ -1,0 +1,300 @@
+:root{
+  --ink:#4b4642;
+  --muted:#817a74;
+  --beige:#c7b09c;
+  --beige-deep:#b59c86;
+  --beige-pale:#ece2d8;
+  --ivory:#fbfaf7;
+  --paper:#f5f2ed;
+  --white:#fff;
+  --shadow:0 24px 70px rgba(65,52,43,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Montserrat",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+button{color:inherit}
+img{max-width:100%}
+.invite{width:100%;overflow:hidden;background:var(--paper)}
+.paper{position:relative;background-color:#f8f6f1;background-image:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url('assets/paper_texture.jpg');background-size:360px 360px}
+.wood{background-color:#e8e2dc;background-image:linear-gradient(rgba(255,255,255,.10),rgba(255,255,255,.10)),url('assets/wood_tile.jpg');background-size:320px 320px}
+.section-kicker{margin:0 0 15px;font-size:10px;font-weight:600;letter-spacing:.27em;text-transform:uppercase;color:var(--beige-deep)}
+.section-kicker.light{color:#f3e9df}
+.section-copy{max-width:580px;margin:0 auto 26px;font:400 14px/1.8 "Montserrat",sans-serif;color:var(--muted)}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;background:#67615d;color:#fff}
+.hero-photo,.rsvp-photo,.closing-photo{position:absolute;inset:-3%;background-size:cover;background-position:center;z-index:-3;will-change:transform}
+.hero-photo{background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1900&q=90');background-position:center 50%;animation:heroDrift 18s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:scale(1.06) translate3d(0,0,0)}to{transform:scale(1.13) translate3d(0,-1.4%,0)}}
+.hero-shade,.rsvp-shade,.closing-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(45,47,47,.20),rgba(38,38,38,.30) 50%,rgba(38,37,35,.48))}
+.hero-frame{position:absolute;inset:28px;border:1px solid rgba(255,255,255,.42);z-index:1;pointer-events:none}
+.hero-frame:before,.hero-frame:after{content:"";position:absolute;left:50%;width:52px;height:1px;background:rgba(255,255,255,.72);transform:translateX(-50%)}
+.hero-frame:before{top:-1px}.hero-frame:after{bottom:-1px}
+.leaf{position:absolute;z-index:2;width:min(250px,25vw);opacity:.63;filter:brightness(2.6) saturate(.15);pointer-events:none;mix-blend-mode:screen}
+.leaf-tl{left:-32px;top:-34px;transform:rotate(4deg)}
+.leaf-br{right:-34px;bottom:-35px;transform:rotate(184deg)}
+.hero-copy{position:relative;z-index:3;text-align:center;width:min(760px,88vw);padding:40px 20px;text-shadow:0 3px 24px rgba(0,0,0,.18)}
+.hero-monogram{display:block;margin:0 auto 34px;font:400 17px/1 "Cormorant Garamond",serif;letter-spacing:.36em;opacity:.94}
+.hero-monogram i{font-size:.72em;font-style:italic;margin:0 .18em}
+.hero .eyebrow{margin:0 0 16px;font-size:10px;font-weight:500;letter-spacing:.32em}
+.hero h1{margin:0;font:400 clamp(66px,9.4vw,122px)/.74 "Mrs Saint Delafield",cursive;letter-spacing:.01em}
+.hero h1 span,.closing h2 span{font-size:.63em}
+.hero-kicker{margin:25px 0 0;font-size:11px;font-weight:500;letter-spacing:.38em}
+.scroll-cue{position:relative;margin-top:46px;width:38px;height:52px;border:1px solid rgba(255,255,255,.58);border-radius:22px;background:transparent;cursor:pointer}
+.scroll-cue span{position:absolute;left:50%;top:12px;width:4px;height:4px;background:#fff;border-radius:50%;transform:translateX(-50%);animation:scrollDot 1.8s ease-in-out infinite}
+@keyframes scrollDot{0%{opacity:0;transform:translate(-50%,0)}25%{opacity:1}75%{opacity:1}100%{opacity:0;transform:translate(-50%,19px)}}
+.hero-enter>*{opacity:0;transform:translateY(20px);animation:heroIn .85s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-enter .hero-monogram{animation-delay:.12s}.hero-enter .eyebrow{animation-delay:.26s}.hero-enter h1{animation-delay:.40s}.hero-enter .hero-kicker{animation-delay:.56s}.hero-enter .scroll-cue{animation-delay:.72s}
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+
+/* Countdown */
+.count-section{min-height:520px;padding:82px 24px 74px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.count-section h2,.instagram h2,.gift-card h2,.song-section h2,.glass-card h2{margin:0;font:400 clamp(32px,4vw,48px)/1.06 "Cormorant Garamond",serif;color:#554d47}
+.ornament{font:300 17px "Cormorant Garamond",serif;color:#c5ad96;opacity:.75}
+.ornament-top{margin-bottom:22px}
+.ring-countdown{display:flex;justify-content:center;gap:16px;margin:40px auto 30px;max-width:900px}
+.ring{--p:0deg;position:relative;width:138px;height:138px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:conic-gradient(var(--beige-deep) var(--p),rgba(181,156,134,.20) 0);box-shadow:inset 0 0 0 1px rgba(181,156,134,.08)}
+.ring:before{content:"";position:absolute;inset:2px;border-radius:50%;background:rgba(248,246,241,.98)}
+.ring b,.ring span{position:relative;z-index:1}
+.ring b{font:400 32px/1 "Cormorant Garamond",serif;color:#5f5650}
+.ring span{margin-top:9px;font-size:8px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#9a8c80}
+.heart-logo{width:72px;margin:4px auto 17px;filter:drop-shadow(0 7px 16px rgba(95,76,61,.08))}
+.intro-copy{max-width:560px;margin:0;font:400 16px/1.7 "Cormorant Garamond",serif;color:#776e67}
+
+/* Venues */
+.venues{padding:92px max(28px,7vw) 110px}
+.section-heading{text-align:center;max-width:730px;margin:0 auto 52px}
+.section-heading h2{margin:0;font:400 clamp(30px,3.4vw,44px)/1.18 "Cormorant Garamond",serif;color:#514a45}
+.venue-grid{width:min(1040px,92vw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.venue-card{background:rgba(255,255,255,.84);box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(185,165,147,.22)}
+.venue-photo{position:relative;height:315px;background-size:cover;background-position:center;overflow:hidden}
+.venue-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(45,40,37,.25))}
+.ceremony-photo{background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1100&q=86')}
+.party-photo{background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1100&q=86')}
+.photo-number{position:absolute;z-index:2;top:18px;right:20px;color:#fff;font:500 9px "Montserrat",sans-serif;letter-spacing:.16em;text-shadow:0 2px 12px #0005}
+.venue-body{text-align:center;padding:34px 35px 40px}
+.section-icon{display:block;width:68px;height:68px;object-fit:contain;margin:0 auto 13px}
+.section-icon.large{width:78px;height:78px;margin-bottom:6px}
+.venue-body h3{margin:0 0 12px;font:400 31px/1 "Cormorant Garamond",serif;color:#b89f89}
+.venue-body p{min-height:80px;margin:0 0 22px;font:400 13px/1.7 "Montserrat",sans-serif;color:#746d68}
+.venue-body p b{font-weight:500;color:#554f4a}
+.outline-btn,.solid-btn,.ghost-btn,.text-btn{cursor:pointer;letter-spacing:.10em;font-size:10px;font-weight:600;transition:transform .22s ease,background .22s ease,color .22s ease,border-color .22s ease}
+.outline-btn{padding:12px 24px;border:1px solid #bba58f;background:transparent;color:#9f856e;border-radius:999px}
+.outline-btn:hover{background:#bba58f;color:#fff;transform:translateY(-2px)}
+
+/* RSVP */
+.rsvp-section{position:relative;min-height:620px;padding:80px 24px;display:grid;place-items:center;isolation:isolate;overflow:hidden}
+.rsvp-photo{background-image:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1900&q=88');filter:blur(.6px);transform:scale(1.05)}
+.rsvp-shade{background:rgba(60,53,48,.30)}
+.glass-card{width:min(700px,88vw);padding:52px 42px;text-align:center;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.82);box-shadow:0 25px 80px rgba(33,28,25,.18);backdrop-filter:blur(10px)}
+.glass-card p:not(.section-kicker){margin:15px auto 26px;font:400 14px/1.7 "Montserrat",sans-serif;color:#77706a}
+.button-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.solid-btn,.ghost-btn{padding:13px 25px;border-radius:999px}
+.solid-btn{border:1px solid var(--beige-deep);background:var(--beige-deep);color:#fff}
+.ghost-btn{border:1px solid var(--beige-deep);background:transparent;color:#9b806a}
+.solid-btn:hover,.ghost-btn:hover{transform:translateY(-2px)}
+.ghost-btn:hover{background:var(--beige-deep);color:#fff}
+
+/* Instagram carousel */
+.instagram{padding:95px 24px 108px;text-align:center}
+.instagram h2{color:#bea48d}
+.text-btn{border:0;border-bottom:1px solid #bda58f;padding:8px 2px;background:transparent;color:#a78b74}
+.text-btn:hover{transform:translateY(-2px)}
+.carousel{width:min(610px,90vw);margin:48px auto 0;display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;gap:15px}
+.carousel-stage{position:relative;overflow:hidden;aspect-ratio:4/3;background:#ebe5df;box-shadow:var(--shadow)}
+.carousel-image{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;animation:photoIn .55s ease}
+@keyframes photoIn{from{opacity:.25;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}
+.carousel-caption{position:absolute;right:14px;bottom:13px;display:flex;align-items:center;gap:7px;padding:7px 9px;background:rgba(255,255,255,.83);backdrop-filter:blur(7px);font:600 8px "Montserrat",sans-serif;letter-spacing:.08em;color:#6f655e}
+.carousel-caption i{display:block;width:20px;height:1px;background:#bba58f}
+.carousel-arrow{width:46px;height:46px;border:1px solid rgba(181,156,134,.42);border-radius:50%;background:rgba(255,255,255,.50);font:300 31px/1 "Cormorant Garamond",serif;color:#a68c75;cursor:pointer;transition:.2s}
+.carousel-arrow:hover{background:#fff;transform:scale(1.04)}
+.carousel-dots{display:flex;justify-content:center;gap:9px;margin-top:22px}
+.dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#d2c3b7;cursor:pointer;transition:.22s}
+.dot.active{width:26px;border-radius:999px;background:#b69d87}
+
+/* Gift */
+.gift-section{min-height:520px;padding:84px 24px;display:grid;place-items:center;position:relative}
+.gift-card{width:min(740px,88vw);padding:54px 48px;text-align:center;background:rgba(255,255,255,.91);border:1px solid rgba(255,255,255,.82);box-shadow:0 22px 70px rgba(50,42,37,.12)}
+.gift-logo{width:82px;margin:0 auto 17px}
+.gift-card p:not(.section-kicker){max-width:540px;margin:14px auto 26px;font:400 14px/1.7 "Montserrat",sans-serif;color:#756e68}
+
+/* Song */
+.song-section{min-height:500px;padding:90px 24px;display:grid;place-items:center;text-align:center}
+.song-section>div{max-width:700px}
+.song-section h2{color:#b59e89}
+
+/* Closing */
+.closing{position:relative;min-height:450px;padding:72px 24px;display:grid;place-items:center;isolation:isolate;overflow:hidden;color:#fff;text-align:center}
+.closing-photo{background-image:url('https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=1900&q=86');background-position:center 45%;filter:blur(.3px);transform:scale(1.04)}
+.closing-shade{background:linear-gradient(180deg,rgba(49,46,44,.28),rgba(43,40,38,.56))}
+.closing-copy{max-width:720px;text-shadow:0 3px 22px rgba(0,0,0,.28)}
+.closing h2{margin:0;font:400 clamp(58px,7vw,88px)/.84 "Mrs Saint Delafield",cursive}
+.closing p:not(.section-kicker){margin:18px auto 0;font:400 14px/1.7 "Montserrat",sans-serif;max-width:520px}
+
+/* Brand footer */
+.brand-footer{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:48px max(7vw,28px);text-align:center;border-top:1px solid rgba(175,156,138,.18)}
+.brand-footer div{display:flex;flex-direction:column;gap:7px}
+.brand-footer span{font-size:9px;font-weight:500;letter-spacing:.18em;color:#8a827c}
+.brand-footer strong{font:500 clamp(21px,2.4vw,32px) "Montserrat",sans-serif;letter-spacing:.07em;color:#4d4946}
+
+/* Reveal animations */
+.reveal{opacity:0;transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal-up{transform:translateY(38px)}
+.reveal-left{transform:translateX(-48px)}
+.reveal-right{transform:translateX(48px)}
+.reveal-scale{transform:scale(.95)}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* Music */
+.music-fab{position:fixed;right:18px;bottom:18px;z-index:1500;width:56px;height:56px;border:0;border-radius:50%;display:grid;place-items:center;background:rgba(177,155,135,.94);color:#fff;box-shadow:0 10px 32px rgba(56,45,36,.26);cursor:pointer;backdrop-filter:blur(8px);transition:.25s}
+.music-fab:hover{transform:translateY(-2px) scale(1.03)}
+.music-note{font:400 25px/1 Georgia,serif;transform:translateY(-1px)}
+.music-fab:after{content:"";position:absolute;width:26px;height:1.6px;border-radius:2px;background:#fff;transform:rotate(-42deg);transition:.2s}
+.music-fab.is-playing{background:#9ea17d;box-shadow:0 0 0 7px rgba(158,161,125,.14),0 10px 32px rgba(56,45,36,.26)}
+.music-fab.is-playing:after{opacity:0;transform:rotate(-42deg) scale(.55)}
+.music-fab.is-playing .music-note{animation:musicPulse 1.25s ease-in-out infinite}
+@keyframes musicPulse{50%{transform:translateY(-2px) scale(1.14)}}
+
+/* Modal */
+.modal{position:fixed;inset:0;z-index:3000;display:none;place-items:center;padding:24px}
+.modal.open{display:grid}
+.modal-backdrop{position:absolute;inset:0;border:0;background:rgba(26,23,21,.72);backdrop-filter:blur(5px)}
+.modal-card{position:relative;width:min(520px,92vw);padding:44px 38px;background:#fff;text-align:center;box-shadow:0 30px 100px #0005}
+.modal-x{position:absolute;right:13px;top:9px;border:0;background:transparent;font-size:27px;font-weight:300;color:#7c736d;cursor:pointer}
+.modal-card h2{margin:0 0 15px;font:400 34px/1.05 "Cormorant Garamond",serif;color:#5a514b}
+.modal-card p{font-size:13px;line-height:1.7;color:#766f69}
+.modal-card form{display:grid;gap:10px;margin-top:19px}
+.modal-card input,.modal-card textarea,.modal-card select{width:100%;border:1px solid #ded7d1;background:#fff;padding:12px 13px;font-size:13px;color:#534d48;outline:none}
+.modal-card textarea{min-height:82px;resize:vertical}
+.modal-card input:focus,.modal-card textarea:focus,.modal-card select:focus{border-color:#bca38e;box-shadow:0 0 0 3px rgba(188,163,142,.10)}
+.calendar-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.calendar-actions a{text-decoration:none}
+
+/* Lightbox */
+.zoomable-photo{cursor:zoom-in}
+.lightbox{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:30px}
+.lightbox.open{display:flex}
+.lightbox-backdrop{position:absolute;inset:0;border:0;background:rgba(16,15,14,.94);backdrop-filter:blur(8px)}
+.lightbox-stage{position:relative;z-index:1;width:min(1120px,92vw);height:min(84svh,900px);display:grid;place-items:center}
+.lightbox-stage img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 25px 90px #0008}
+.lightbox-caption{position:absolute;left:50%;bottom:-28px;transform:translateX(-50%);font-size:11px;color:#fff;white-space:nowrap}
+.lightbox-close,.lightbox-nav{position:fixed;z-index:2;border:0;background:rgba(255,255,255,.10);color:#fff;backdrop-filter:blur(7px);cursor:pointer;display:grid;place-items:center}
+.lightbox-close{right:20px;top:18px;width:46px;height:46px;border-radius:50%;font-size:29px}
+.lightbox-nav{top:50%;width:50px;height:70px;transform:translateY(-50%);font:300 42px/1 "Cormorant Garamond",serif}
+.lightbox-prev{left:16px}.lightbox-next{right:16px}
+
+@media(max-width:760px){
+  .hero-frame{inset:16px}
+  .leaf{width:160px}.leaf-tl{left:-50px;top:-42px}.leaf-br{right:-48px;bottom:-42px}
+  .hero-copy{padding-top:60px}.hero h1{font-size:clamp(62px,18vw,84px)}.hero-monogram{margin-bottom:26px}.hero .eyebrow{font-size:9px}.hero-kicker{font-size:9px}
+  .count-section{min-height:560px;padding:72px 18px 68px}
+  .ring-countdown{gap:7px;width:100%;margin-top:34px}.ring{width:78px;height:78px}.ring b{font-size:22px}.ring span{font-size:7px;margin-top:5px;letter-spacing:.06em}
+  .heart-logo{width:67px;margin-top:13px}.intro-copy{font-size:15px;max-width:330px}
+  .venues{padding:72px 18px 82px}.section-heading{margin-bottom:34px}.section-heading h2{font-size:30px}
+  .venue-grid{grid-template-columns:1fr;width:min(520px,94vw);gap:26px}.venue-photo{height:250px}.venue-body{padding:30px 24px 34px}.venue-body p{min-height:0;font-size:12px}.section-icon{width:62px;height:62px}
+  .rsvp-section{min-height:610px;padding:56px 18px}.glass-card{width:min(94vw,520px);padding:40px 24px}.glass-card h2{font-size:36px}.button-row{flex-direction:column;align-items:stretch}.solid-btn,.ghost-btn{width:100%}
+  .instagram{padding:78px 18px 90px}.section-copy{font-size:13px;max-width:340px}.carousel{grid-template-columns:34px minmax(0,1fr) 34px;gap:8px;width:min(95vw,520px)}.carousel-arrow{width:34px;height:34px;font-size:26px}.carousel-stage{aspect-ratio:3/4}
+  .gift-section{min-height:500px;padding:64px 18px}.gift-card{width:min(94vw,560px);padding:42px 25px}.gift-logo{width:76px}.gift-card p:not(.section-kicker){font-size:13px}
+  .song-section{min-height:480px;padding:72px 20px}.song-section h2{font-size:34px}
+  .closing{min-height:430px}.closing h2{font-size:62px}.closing p:not(.section-kicker){font-size:13px;max-width:330px}
+  .brand-footer{grid-template-columns:1fr;gap:30px;padding:40px 24px}.brand-footer strong{font-size:25px}
+  .music-fab{right:12px;bottom:12px;width:52px;height:52px}
+  .modal-card{padding:40px 24px}.lightbox{padding:18px}.lightbox-nav{width:40px;height:60px}.lightbox-prev{left:5px}.lightbox-next{right:5px}.lightbox-close{right:9px;top:9px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}}
+
+
+/* =========================================================
+   V2 · LEGIBILIDAD, LOGOS PROPIOS Y FOTOGRAFÍA EN MOVIMIENTO
+   ========================================================= */
+body{font-size:16px;font-weight:400;letter-spacing:.002em}
+.section-kicker{font-size:12px;font-weight:600;line-height:1.5;letter-spacing:.22em;margin-bottom:16px}
+.section-copy{max-width:650px;font-size:16px;line-height:1.8;font-weight:500;color:#716963}
+.hero .eyebrow{font-size:12px;font-weight:600;letter-spacing:.30em}
+.hero-kicker{font-size:13px;font-weight:600;letter-spacing:.31em}
+.hero-monogram{font-size:20px;font-weight:500}
+.count-section h2,.instagram h2,.gift-card h2,.glass-card h2{font-weight:500}
+.section-heading h2{font-weight:500;font-size:clamp(34px,3.7vw,49px);line-height:1.18}
+.intro-copy{font-size:19px;line-height:1.7;font-weight:500;max-width:640px}
+.ring b{font-size:35px;font-weight:500}.ring span{font-size:10px;font-weight:700}
+.venue-body h3{font-size:35px;font-weight:500}.venue-body p{font-size:15.5px;line-height:1.75;font-weight:500}.venue-body p b{font-weight:600}
+.glass-card p:not(.section-kicker),.gift-card p:not(.section-kicker),.closing p:not(.section-kicker){font-size:16px;line-height:1.75;font-weight:500}
+.outline-btn,.solid-btn,.ghost-btn,.text-btn{font-size:11.5px;font-weight:700;letter-spacing:.09em}
+.text-btn{font-size:12px}
+
+/* Inicio sin el punto móvil: flecha simple y legible. */
+.scroll-cue{width:50px;height:42px;margin-top:42px;border:0;background:transparent;border-radius:0;color:#fff;display:inline-grid;place-items:center}
+.scroll-cue .scroll-chevron{position:static;width:auto;height:auto;background:none;border-radius:0;transform:none;animation:cueFloat 2.2s ease-in-out infinite;font:400 37px/1 "Cormorant Garamond",serif;opacity:.92}
+@keyframes cueFloat{0%,100%{transform:translateY(0);opacity:.70}50%{transform:translateY(5px);opacity:1}}
+
+/* Logos propios del modelo beige. */
+.feature-logo{width:92px;height:92px;margin:0 auto 14px;color:#b49a83;display:grid;place-items:center;filter:drop-shadow(0 7px 15px rgba(88,67,50,.07));transform-origin:center}
+.feature-logo svg{width:100%;height:100%;overflow:visible}
+.logo-stroke{fill:none;stroke:currentColor;stroke-width:2.35;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.logo-fill{fill:currentColor}
+.logo-ceremony{animation:chapelFloat 4s ease-in-out infinite}
+.logo-ceremony .chapel-cross{animation:crossGlow 2.1s ease-in-out infinite;transform-origin:50px 16px}
+.logo-ceremony .chapel-bell{animation:bellPulse 1.8s ease-in-out infinite;transform-origin:center}
+@keyframes chapelFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes crossGlow{0%,100%{opacity:.62;transform:scale(.94)}50%{opacity:1;transform:scale(1.07)}}
+@keyframes bellPulse{0%,100%{transform:scale(.85);opacity:.65}50%{transform:scale(1.2);opacity:1}}
+.logo-party .glass{transform-box:fill-box;transform-origin:bottom center}
+.logo-party .glass-left{animation:glassLeft 2.65s ease-in-out infinite}
+.logo-party .glass-right{animation:glassRight 2.65s ease-in-out infinite}
+.logo-party .party-bubble{transform-box:fill-box;transform-origin:center;animation:bubbleRise 2.3s ease-in-out infinite}
+.logo-party .b2{animation-delay:.5s}.logo-party .b3{animation-delay:1s}
+@keyframes glassLeft{0%,100%{transform:rotate(0)}45%{transform:rotate(5deg) translate(2px,-1px)}55%{transform:rotate(7deg) translate(3px,-2px)}}
+@keyframes glassRight{0%,100%{transform:rotate(0)}45%{transform:rotate(-5deg) translate(-2px,-1px)}55%{transform:rotate(-7deg) translate(-3px,-2px)}}
+@keyframes bubbleRise{0%{transform:translateY(4px) scale(.72);opacity:.15}45%{opacity:1}100%{transform:translateY(-8px) scale(1.05);opacity:.10}}
+.logo-rsvp{width:100px;height:100px;animation:envelopeFloat 4.1s ease-in-out infinite}
+.logo-rsvp .envelope-fold{transform-box:fill-box;transform-origin:top center;animation:flapBreathe 2.8s ease-in-out infinite}
+.logo-rsvp .rsvp-heart{transform-box:fill-box;transform-origin:center;animation:heartBeat 1.7s ease-in-out infinite}
+@keyframes envelopeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes flapBreathe{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-2px) scaleY(.88)}}
+@keyframes heartBeat{0%,100%{transform:scale(.88);opacity:.72}45%{transform:scale(1.16);opacity:1}60%{transform:scale(1.02)}}
+.logo-instagram{width:96px;height:96px;animation:cameraFloat 4.4s ease-in-out infinite}
+.logo-instagram .insta-lens{transform-box:fill-box;transform-origin:center;animation:lensPulse 2.3s ease-in-out infinite}
+.logo-instagram .insta-spark{transform-box:fill-box;transform-origin:center;animation:sparkTurn 3.8s linear infinite}
+@keyframes cameraFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(1deg)}}
+@keyframes lensPulse{0%,100%{transform:scale(.92);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+@keyframes sparkTurn{to{transform:rotate(360deg)}}
+
+/* Fotos: más resolución visual y movimiento autónomo suave. */
+.venue-photo{background:none!important;height:340px}
+.venue-photo img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;filter:saturate(.94) contrast(1.02)}
+.venue-card:nth-child(1) .venue-photo img{animation:venuePanA 12s ease-in-out infinite alternate}
+.venue-card:nth-child(2) .venue-photo img{animation:venuePanB 13.5s ease-in-out infinite alternate}
+@keyframes venuePanA{from{transform:scale(1.035) translate3d(-.8%,0,0)}to{transform:scale(1.095) translate3d(1.7%,-1.2%,0)}}
+@keyframes venuePanB{from{transform:scale(1.045) translate3d(1.4%,.4%,0)}to{transform:scale(1.105) translate3d(-1.8%,-1%,0)}}
+.rsvp-photo{animation:rsvpPhotoMove 16s ease-in-out infinite alternate}
+.closing-photo{animation:closingPhotoMove 17s ease-in-out infinite alternate}
+@keyframes rsvpPhotoMove{from{transform:scale(1.07) translate3d(-1%,0,0)}to{transform:scale(1.13) translate3d(1.5%,-1.2%,0)}}
+@keyframes closingPhotoMove{from{transform:scale(1.06) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.4%,-1%,0)}}
+.carousel-image{animation:photoReveal .55s ease,carouselKenBurns 5.25s ease-in-out both;will-change:transform}
+@keyframes photoReveal{from{opacity:.25}to{opacity:1}}
+@keyframes carouselKenBurns{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.095) translate3d(-1.1%,-.8%,0)}}
+.carousel-stage{box-shadow:0 24px 75px rgba(65,52,43,.18)}
+
+/* Cierre de marca: escala y jerarquía coherentes. */
+.brand-footer{padding:56px max(7vw,28px);gap:74px}
+.brand-footer div{gap:9px;align-items:center}
+.brand-footer span{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:none;color:#746d68}
+.brand-footer strong{font:600 clamp(27px,3vw,38px)/1.1 "Montserrat",sans-serif;letter-spacing:.065em;color:#494542}
+
+@media(max-width:760px){
+  body{font-size:16px}
+  .section-kicker{font-size:11px;line-height:1.55;letter-spacing:.18em}
+  .hero .eyebrow{font-size:11px}.hero-kicker{font-size:11px;line-height:1.5}.hero-monogram{font-size:18px}
+  .intro-copy{font-size:18px;max-width:360px}.ring b{font-size:24px}.ring span{font-size:8px}
+  .section-heading h2{font-size:33px;line-height:1.2}
+  .venue-photo{height:285px}.venue-body h3{font-size:34px}.venue-body p{font-size:14px;line-height:1.75}
+  .feature-logo{width:84px;height:84px}.logo-rsvp{width:90px;height:90px}.logo-instagram{width:88px;height:88px}
+  .glass-card p:not(.section-kicker),.gift-card p:not(.section-kicker),.closing p:not(.section-kicker),.section-copy{font-size:14.5px;line-height:1.75}
+  .outline-btn,.solid-btn,.ghost-btn,.text-btn{font-size:11px}
+  .brand-footer{gap:34px;padding:44px 24px}.brand-footer span{font-size:12.5px}.brand-footer strong{font-size:27px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .logo-ceremony,.logo-party .glass,.logo-party .party-bubble,.logo-rsvp,.logo-rsvp .envelope-fold,.logo-rsvp .rsvp-heart,.logo-instagram,.logo-instagram .insta-lens,.logo-instagram .insta-spark,.venue-photo img,.rsvp-photo,.closing-photo,.carousel-image,.scroll-cue .scroll-chevron{animation:none!important}
+}
